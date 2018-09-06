@@ -3,27 +3,38 @@
   <div class="jumbotron">
     <h1 class="text-center">Code Snippets Saving App</h1>
 
-    <div id="buttons-div">
+    <div class="text-center" id="buttons-div">
       <a href="/add"><button class="btn btn-primary">Add A New Snippet</button></a>
       <a href="/search"><button class="btn btn-primary">Search For A Snippet</button></a>
-    </div>
-
-    <div class="dropdown" id="dropdown-div">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
-        Filter By Tag
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Tag 1</a>
-        <a class="dropdown-item" href="#">Tag 2</a>
-        <a class="dropdown-item" href="#">Tag 3</a>
-      </div>
     </div>
 
   </div>
 
 
-  <h3 class="text-center">Your saved snippets:</h3>
+  <div class="row">
+
+    <div class="col-6 text-right">
+      <h3 id="saved-snippets-header">Your saved snippets:</h3>
+    </div>
+
+    <div class="col-6 text-left">
+      <div class="dropdown" id="dropdown-div">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Filter By Tag
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          {{#each taglist}}
+          <a class="dropdown-item" href="/search/{{this}}">{{this}}</a>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+
   <div class="row">
     <div class="col-10 offset-1">
       <ul>
@@ -37,8 +48,7 @@
 
           <button class="btn btn-danger btn-small delete-button" data-id="{{this.id}}">Delete</button>
         </li>
-        <br>
-        {{/each}}
+        <br> {{/each}}
       </ul>
     </div>
   </div>
@@ -46,7 +56,7 @@
   <footer>
     <hr>
     <p>
-      <a href="/api/all">Snippets API Data</a> | 
+      <a href="/api/all">Snippets API Data</a> |
       <a href="https://www.github.com/adnanyousef/snippet-web" target="_blank">GitHub Repo</a>
     </p>
   </footer>
