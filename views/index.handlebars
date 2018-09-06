@@ -1,0 +1,67 @@
+<div class="container">
+
+  <h1 class="text-center">Code Snippets Saving App</h1>
+
+  <br>
+
+  <div class="row">
+    <div class="col-6">
+      <h3 class="text-center">Add a snippet</h3>
+      <form action="/api/new" method="post" id="add-form">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input name="title" class="form-control" id="title-input" placeholder="Generate a random number">
+        </div>
+        <div class="form-group">
+          <label for="tags">Tags, separate with comma (optional)</label>
+          <input name="tags" class="form-control" id="tags-input" placeholder="random,number">
+        </div>
+        <div class="form-group">
+          <label for="code">Code</label>
+          <textarea name="code" class="form-control" id="code-input" rows="3" placeholder="var number = Math.floor(Math.random() * 10) + 1"></textarea>
+        </div>
+        <input type="submit" id="submit-button" value="Submit">
+      </form>
+    </div>
+
+    <div class="col-6" id="search-column">
+      <h3 class="text-center">Search for a snippet</h3>
+      <form id="search-form-title">
+        <div class="form-group">
+          <label for="title">Search by title</label>
+          <input class="form-control" type="text">
+        </div>
+        <input type="submit" value="Submit">
+      </form>
+      <br>
+      <p>Search functionality coming soon! (not implemented yet)</p>
+    </div>
+
+  </div>
+
+
+  <hr>
+  <h3>Your saved snippets:</h3>
+  <ul>
+    {{#each snippet}}
+    <li>
+      <h5 style="margin-bottom: 0;"><span class="label">Title:</span> <span style="text-decoration: underline;">{{this.title}}</span></h5>
+      <div><span class="label">Tags:</span> {{this.tags}}</div>
+      <div>
+        <pre><code>{{this.code}}</code></pre>
+      </div>
+
+      <button class="btn btn-danger btn-small delete-button" data-id="{{this.id}}">Delete</button>
+    </li><hr>
+    {{/each}}
+  </ul>
+
+  <footer>
+    <p>
+      <a href="/api/all">Snippets API Data</a> | <a href="https://www.github.com/adnanyousef/snippet-web" target="_blank">GitHub
+        Repo
+      </a>
+    </p>
+  </footer>
+
+</div>
