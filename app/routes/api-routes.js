@@ -1,5 +1,9 @@
 var db = require("../models");
 
+var parseTags = function(tagString) {
+
+}
+
 module.exports = function(app) {
 
   // Main get route
@@ -11,10 +15,11 @@ module.exports = function(app) {
 
   // Add route
   app.post("/api/new", function(req,res) {
-    console.log(req.body);
+    var tagsString = "[" + req.body.tags.replace(/ /g, "") + "]";
+    console.log(tagsString);
     db.Snippet.create({
       title: req.body.title,
-      tags: req.body.tags,
+      tags: tagsString,
       code: req.body.code
     }).then(function() {
       res.redirect("/");

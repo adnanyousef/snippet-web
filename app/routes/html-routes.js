@@ -10,7 +10,15 @@ module.exports = function(app) {
         ['id', 'DESC']
       ]
     }).then(function(results) {
-      console.log(results);
+      var tags = [];
+      for (var i=0; i<results.length; i++) {
+        // console.log(results[i].tags.split(","));
+        var tempArr = results[i].tags.split(",");
+        for (var j=0; j < tempArr.length; j++) {
+          if (!tags.includes(tempArr[j])) tags.push(tempArr[j]);
+        };
+      };
+      console.log(tags);
       res.render('index', {snippet: results});
     });
   });
