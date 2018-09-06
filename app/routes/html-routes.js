@@ -10,6 +10,7 @@ module.exports = function(app) {
         ['id', 'DESC']
       ]
     }).then(function(results) {
+      console.log(results);
       res.render('index', {snippet: results});
     });
   });
