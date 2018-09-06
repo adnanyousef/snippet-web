@@ -1,66 +1,53 @@
 <div class="container">
 
-  <h1 class="text-center">Code Snippets Saving App</h1>
+  <div class="jumbotron">
+    <h1 class="text-center">Code Snippets Saving App</h1>
 
-  <br>
-
-  <div class="row">
-    <div class="col-6">
-      <h3 class="text-center">Add a snippet</h3>
-      <form action="/api/new" method="post" id="add-form">
-        <div class="form-group">
-          <label for="title">Title</label>
-          <input name="title" class="form-control" id="title-input" placeholder="Generate a random number">
-        </div>
-        <div class="form-group">
-          <label for="tags">Tags, separate with comma (optional)</label>
-          <input name="tags" class="form-control" id="tags-input" placeholder="random,number">
-        </div>
-        <div class="form-group">
-          <label for="code">Code</label>
-          <textarea name="code" class="form-control" id="code-input" rows="3" placeholder="var number = Math.floor(Math.random() * 10) + 1"></textarea>
-        </div>
-        <input type="submit" id="submit-button" value="Submit">
-      </form>
+    <div id="buttons-div">
+      <a href="/add"><button class="btn btn-primary">Add A New Snippet</button></a>
+      <a href="/search"><button class="btn btn-primary">Search For A Snippet</button></a>
     </div>
 
-    <div class="col-6" id="search-column">
-      <h3 class="text-center">Search for a snippet</h3>
-      <form id="search-form-title">
-        <div class="form-group">
-          <label for="title">Search by title</label>
-          <input class="form-control" type="text">
-        </div>
-        <input type="submit" value="Search">
-      </form>
-      <br>
-      <p>Search functionality coming soon! (not implemented yet)</p>
+    <div class="dropdown" id="dropdown-div">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        Filter By Tag
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Tag 1</a>
+        <a class="dropdown-item" href="#">Tag 2</a>
+        <a class="dropdown-item" href="#">Tag 3</a>
+      </div>
     </div>
 
   </div>
 
 
-  <hr>
   <h3 class="text-center">Your saved snippets:</h3>
-  <ul>
-    {{#each snippet}}
-    <li>
-      <h5 style="margin-bottom: 0;"><span class="label">Title:</span> <span style="text-decoration: underline;">{{this.title}}</span></h5>
-      <div><span class="label">Tags:</span> {{this.tags}}</div>
-      <div>
-        <pre><code>{{this.code}}</code></pre>
-      </div>
+  <div class="row">
+    <div class="col-10 offset-1">
+      <ul>
+        {{#each snippet}}
+        <li>
+          <h5 style="margin-bottom: 0;"><span class="label">Title:</span> <span style="text-decoration: underline;">{{this.title}}</span></h5>
+          <div><span class="label">Tags:</span> {{this.tags}}</div>
+          <div>
+            <pre><code>{{this.code}}</code></pre>
+          </div>
 
-      <button class="btn btn-danger btn-small delete-button" data-id="{{this.id}}">Delete</button>
-    </li><hr>
-    {{/each}}
-  </ul>
+          <button class="btn btn-danger btn-small delete-button" data-id="{{this.id}}">Delete</button>
+        </li>
+        <br>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
 
   <footer>
+    <hr>
     <p>
-      <a href="/api/all">Snippets API Data</a> | <a href="https://www.github.com/adnanyousef/snippet-web" target="_blank">GitHub
-        Repo
-      </a>
+      <a href="/api/all">Snippets API Data</a> | 
+      <a href="https://www.github.com/adnanyousef/snippet-web" target="_blank">GitHub Repo</a>
     </p>
   </footer>
 

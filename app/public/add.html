@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <title>Code Snippet Saver</title>
+    <script src="/assets/js/index.js"></script>
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1 class="text-center">Code Snippets Saving App</h1>
+
+            <div id="buttons-div">
+                <a href="/add"><button class="btn btn-primary">Add A New Snippet</button></a>
+                <a href="/search"><button class="btn btn-primary">Search For A Snippet</button></a>
+            </div>
+
+            <div class="dropdown" id="dropdown-div">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Filter By Tag
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Tag 1</a>
+                    <a class="dropdown-item" href="#">Tag 2</a>
+                    <a class="dropdown-item" href="#">Tag 3</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-8 offset-2">
+                <h3 class="text-center">Add a snippet</h3>
+                <form action="/api/new" method="post" id="add-form">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input name="title" class="form-control" id="title-input" placeholder="Generate a random number">
+                    </div>
+                    <div class="form-group">
+                        <label for="tags">Tags, separate with comma (optional)</label>
+                        <input name="tags" class="form-control" id="tags-input" placeholder="random,number">
+                    </div>
+                    <div class="form-group">
+                        <label for="code">Code</label>
+                        <textarea name="code" class="form-control" id="code-input" rows="3" placeholder="var number = Math.floor(Math.random() * 10) + 1"></textarea>
+                    </div>
+                    <input type="submit" id="submit-button" value="Submit">
+                </form>
+            </div>
+
+        </div>
+
+        <footer>
+            <hr>
+            <p>
+                <a href="/api/all">Snippets API Data</a> |
+                <a href="https://www.github.com/adnanyousef/snippet-web" target="_blank">GitHub Repo</a>
+            </p>
+        </footer>
+
+    </div>
+</body>
+
+</html>

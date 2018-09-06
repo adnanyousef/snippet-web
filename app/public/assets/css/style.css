@@ -4,6 +4,14 @@ pre {
   margin-bottom: 3px;
 }
 
-#search-column {
-  background-color: lightgrey;
+#buttons-div {
+  float: left;
+}
+
+#dropdown-div {
+  float: right;
+}
+
+footer {
+  text-align: center;
 }
