@@ -14,3 +14,4 @@ This is the web-based version of this app. A terminal app with the same function
 - [ ] Add ability for users to use their own DB server or localStorage
 - [ ] Integrate [CLI module](https://www.github.com/adnanyousef/snippet-save)
 - [ ] Add syntax highlighting and language option
+- [ ] Add validation for DB input

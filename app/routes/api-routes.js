@@ -15,7 +15,7 @@ module.exports = function(app) {
 
   // Add route
   app.post("/api/new", function(req,res) {
-    var tagsString = "[" + req.body.tags.replace(/ /g, "") + "]";
+    var tagsString = req.body.tags.replace(/ /g, "");
     console.log(tagsString);
     db.Snippet.create({
       title: req.body.title,
