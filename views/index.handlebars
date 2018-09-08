@@ -14,7 +14,7 @@
 
   <div class="row">
 
-    <div class="col-6 text-right">
+    {{!-- <div class="col-6 text-right">
       <h3 id="saved-snippets-header">Your saved snippets:</h3>
     </div>
 
@@ -30,6 +30,11 @@
           {{/each}}
         </div>
       </div>
+    </div> --}}
+
+    <div class="col-12 text-center">
+      <h4 style="display: inline;">Filter by tag:  </h4>
+      <input style="display: inline; width: 150px;" type="text" class="form-control" id="tag-input">
     </div>
 
   </div>
@@ -40,7 +45,7 @@
     <div class="col-10 offset-1">
       <ul>
         {{#each snippet}}
-        <li>
+        <li class="list-item" data-tags="{{this.tags}}">
           <h5 style="margin-bottom: 0;"><span class="label">Title:</span> <span style="text-decoration: underline;">{{this.title}}</span></h5>
           <div><span class="label">Tags:</span> {{this.tags}}</div>
           <div>
@@ -49,7 +54,7 @@
 
           <button class="btn btn-danger btn-small delete-button" data-id="{{this.id}}">Delete</button>
         </li>
-        <br> {{/each}}
+        {{/each}}
       </ul>
     </div>
   </div>

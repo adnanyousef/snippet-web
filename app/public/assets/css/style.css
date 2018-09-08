@@ -8,3 +8,7 @@ pre {
 footer {
   text-align: center;
 }
+
+.list-item {
+  margin-bottom: 15px;
+}

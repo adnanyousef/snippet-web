@@ -1,9 +1,5 @@
 var db = require("../models");
 
-var parseTags = function(tagString) {
-
-}
-
 module.exports = function(app) {
 
   // Main get route
@@ -16,7 +12,10 @@ module.exports = function(app) {
   // Add route
   app.post("/api/new", function(req,res) {
     var tagsString = req.body.tags.replace(/ /g, "");
-    console.log(tagsString);
+    if (tagsString == "") {
+      tagsString = "N/A"
+    };
+    
     db.Snippet.create({
       title: req.body.title,
       tags: tagsString,
