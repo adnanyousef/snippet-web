@@ -1,7 +1,8 @@
 pre {
-  padding: 3px;
+  padding: 5px;
   border: 1px solid black;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 
@@ -12,3 +13,8 @@ footer {
 .list-item {
   margin-bottom: 15px;
 }
+
+.clickable-tags {
+  margin-right: 5px;
+}
+

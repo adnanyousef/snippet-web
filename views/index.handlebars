@@ -6,31 +6,13 @@
     <div class="text-center" id="buttons-div">
       <a href="/"><button class="btn btn-success">Home</button></a>
       <a href="/add"><button class="btn btn-primary">Add A New Snippet</button></a>
-      <a href="/search"><button class="btn btn-primary">Search For A Snippet</button></a>
+      <a href="/search"><button class="btn btn-primary">Advanced Search</button></a>
     </div>
 
   </div>
 
 
   <div class="row">
-
-    {{!-- <div class="col-6 text-right">
-      <h3 id="saved-snippets-header">Your saved snippets:</h3>
-    </div>
-
-    <div class="col-6 text-left">
-      <div class="dropdown" id="dropdown-div">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          Filter By Tag
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          {{#each taglist}}
-          <a class="dropdown-item" href="/search/{{this}}">{{this}}</a>
-          {{/each}}
-        </div>
-      </div>
-    </div> --}}
 
     <div class="col-12 text-center">
       <h4 style="display: inline;">Filter by tag:  </h4>
@@ -47,12 +29,11 @@
         {{#each snippet}}
         <li class="list-item" data-tags="{{this.tags}}">
           <h5 style="margin-bottom: 0;"><span class="label">Title:</span> <span style="text-decoration: underline;">{{this.title}}</span></h5>
-          <div><span class="label">Tags:</span> {{this.tags}}</div>
+          <div><span class="label">Tags:</span> <span class="tags">{{this.tags}}</span></div>
           <div>
             <pre><code>{{this.code}}</code></pre>
           </div>
-
-          <button class="btn btn-danger btn-small delete-button" data-id="{{this.id}}">Delete</button>
+          <button class="btn btn-danger btn-sm delete-button" data-id="{{this.id}}">Delete</button>
         </li>
         {{/each}}
       </ul>
