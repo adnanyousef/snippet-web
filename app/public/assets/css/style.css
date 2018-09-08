@@ -1,9 +1,9 @@
-pre {
+/* pre {
   padding: 5px;
   border: 1px solid black;
   margin-bottom: 5px;
   margin-top: 5px;
-}
+} */
 
 
 footer {
@@ -16,5 +16,16 @@ footer {
 
 .clickable-tags {
   margin-right: 5px;
+  text-decoration: none;
+}
+
+kbd {
+  background-color: #272822;
+  color: white;
+}
+
+.tag-link:hover {
+  color: white;
+  text-decoration: none;
 }
 

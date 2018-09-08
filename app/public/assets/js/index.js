@@ -32,7 +32,7 @@ $(function () {
       if (tagText === "") {
         tagHTML = "N/A";
       } else {
-        tagHTML += `<kbd class="clickable-tags" onclick="filterByTag('${tagText}')">${tagText}</kbd>`;
+        tagHTML += `<a class="tag-link" href="#"><kbd class="clickable-tags" onclick="filterByTag('${tagText}')">${tagText}</kbd></a>`;
       };
     };
     tags[t].innerHTML = tagHTML;
