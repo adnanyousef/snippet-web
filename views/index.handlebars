@@ -9,6 +9,15 @@
       <a href="/search"><button class="btn btn-primary">Advanced Search</button></a>
     </div>
 
+    <div id="info-div">
+      <p class="lead float-left" id="signed-in-as">
+        Signed in as: <span id="email-display"></span>
+      </p>
+      <p class="lead float-right">
+        <a href="/api/logout">Logout</a>
+      </p>
+    </div>
+
   </div>
 
 
@@ -33,6 +42,7 @@
           <div>
             <pre><code class="language-javascript">{{this.code}}</code></pre>
           </div>
+          <button class="btn btn-secondary btn-sm edit-button" data-id="{{this.id}}">Edit</button>  
           <button class="btn btn-danger btn-sm delete-button" data-id="{{this.id}}">Delete</button>
         </li>
         {{/each}}

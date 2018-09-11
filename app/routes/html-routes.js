@@ -1,11 +1,32 @@
 var db = require("../models")
 var path = require("path");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
 
+  // Login page, if user logged in send them to "/list"
+  app.get("/", function(req, res) {
+    if (req.user) {
+      res.redirect("/list");
+    };
+    res.sendFile(path.join(__dirname, "../public/login.html"));
+  });
+
+  // Signup/create account
+  app.get("/signup", function(req, res) {
+    if (req.user) {
+      res.redirect("/list");
+    };
+    res.sendFile(path.join(__dirname, "../public/signup.html"));
+  });
+
   // main route, render all snippets to handlebars
-  app.get("/", function (req, res) {
+  app.get("/list", isAuthenticated, function (req, res) {
+    var userId = req.user.id;
     db.Snippet.findAll({
+      where: {
+        UserId: userId
+      },
       order: [
         ['id', 'DESC']
       ]

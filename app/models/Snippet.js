@@ -15,5 +15,15 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
+
+  // Each Snippet belongs to a User
+  Snippet.associate = function(models) {
+    Snippet.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return Snippet;
 };
