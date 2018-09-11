@@ -3,7 +3,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var db = require("./app/models");
 var session = require("express-session");
-var passport = require("./config/passport");
+var passport = require("./app/config/passport");
 
 // Express and body parser
 var app = express();

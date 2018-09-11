@@ -21,8 +21,12 @@ module.exports = function (app) {
   });
 
   // main route, render all snippets to handlebars
-  app.get("/list", function (req, res) {
+  app.get("/list", isAuthenticated, function (req, res) {
+    var userId = req.user.id;
     db.Snippet.findAll({
+      where: {
+        UserId: userId
+      },
       order: [
         ['id', 'DESC']
       ]
