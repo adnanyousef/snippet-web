@@ -71,4 +71,17 @@ module.exports = function (app) {
       res.render('index', { snippet: results, taglist: ['placeholder'] });
     });
   });
+
+  // Edit page (rendered via handlebars)
+  app.get("/edit/:id", function(req,res) {
+    var id = req.params.id;
+    db.Snippet.findOne({
+      where: {
+        id: id
+      }
+    }).then(function(data) {
+      res.render("edit", { data: data });
+    });
+  });
+
 };

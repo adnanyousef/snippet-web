@@ -53,7 +53,7 @@ module.exports = function(app) {
   });
 
   // Edit route
-  app.put("/api/edit/:id", function(req,res) {
+  app.post("/api/edit/:id", function(req,res) {
     var id = req.params.id;
     var tagsString = req.body.tags.replace(/ /g, "");
     if (tagsString == "") {
@@ -69,6 +69,7 @@ module.exports = function(app) {
         id: id
       }
     }).then(function() {
+      console.log("updated");
       res.redirect("/list");
     });
   });

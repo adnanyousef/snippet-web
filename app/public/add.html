@@ -23,10 +23,9 @@
             <h1 class="text-center">Code Snippets Saving App</h1>
             <div class="text-center" id="buttons-div">
                 <a href="/"><button class="btn btn-success">Home</button></a>
-                <a href="/add"><button class="btn btn-primary">Add A New Snippet</button></a>
                 <a href="/search"><button class="btn btn-primary">Search For A Snippet</button></a>
+                <a href="/api/logout"><button class="btn btn-danger">Logout</button></a>
             </div>
-
         </div>
 
         <div class="row">
@@ -43,7 +42,7 @@
                     </div>
                     <div class="form-group">
                         <label for="code">Code</label>
-                        <textarea name="code" class="form-control" id="code-input" rows="3" placeholder="var number = Math.floor(Math.random() * 10) + 1"></textarea>
+                        <textarea name="code" class="form-control" id="code-input" rows="5" placeholder="var number = Math.floor(Math.random() * 10) + 1"></textarea>
                     </div>
                     <input class="btn btn-primary" type="submit" id="submit-button" value="Submit">
                 </form>
@@ -55,13 +54,15 @@
             <hr>
             <p>
                 <a href="/api/all">Snippets API Data</a> |
-                <a href="https://www.github.com/adnanyousef/snippet-web" target="_blank">GitHub Repo</a>
-            </p>
+                <a href="https://www.github.com/adnanyousef/snippet-web" target="_blank">GitHub Repo</a> |
+                Signed in as: <span id="email-display"></span>
+              </p>
         </footer>
 
-        <!-- <script src="/assets/js/add.js"></script> -->
-
     </div>
+
+    <script src="/assets/js/index.js"></script>
+
 </body>
 
 </html>

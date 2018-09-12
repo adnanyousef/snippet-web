@@ -7,15 +7,7 @@
       <a href="/"><button class="btn btn-success">Home</button></a>
       <a href="/add"><button class="btn btn-primary">Add A New Snippet</button></a>
       <a href="/search"><button class="btn btn-primary">Advanced Search</button></a>
-    </div>
-
-    <div id="info-div">
-      <p class="lead float-left" id="signed-in-as">
-        Signed in as: <span id="email-display"></span>
-      </p>
-      <p class="lead float-right">
-        <a href="/api/logout">Logout</a>
-      </p>
+      <a href="/api/logout"><button class="btn btn-danger">Logout</button></a>
     </div>
 
   </div>
@@ -42,8 +34,8 @@
           <div>
             <pre><code class="language-javascript">{{this.code}}</code></pre>
           </div>
-          <button class="btn btn-secondary btn-sm edit-button" data-id="{{this.id}}">Edit</button>  
-          <button class="btn btn-danger btn-sm delete-button" data-id="{{this.id}}">Delete</button>
+          <a href="/edit/{{this.id}}"><button class="btn btn-secondary btn-sm edit-button" data-id="{{this.id}}">Edit</button></a>
+          <button class="btn btn-danger btn-sm delete-button" data-id="{{this.id}}">Delete</button></a>
         </li>
         {{/each}}
       </ul>
@@ -54,10 +46,13 @@
     <hr>
     <p>
       <a href="/api/all">Snippets API Data</a> |
-      <a href="https://www.github.com/adnanyousef/snippet-web" target="_blank">GitHub Repo</a>
+      <a href="https://www.github.com/adnanyousef/snippet-web" target="_blank">GitHub Repo</a> |
+      Signed in as: <span id="email-display"></span>
     </p>
   </footer>
 
-  <script src="/assets/js/prism.js"></script>
-
 </div>
+	
+<script src="/assets/js/index.js"></script>
+<script src="/assets/js/prism.js"></script>
+
