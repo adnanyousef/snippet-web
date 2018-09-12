@@ -25,6 +25,9 @@ app.use(passport.session());
 // Routes
 require("./app/routes/api-routes.js")(app);
 require("./app/routes/html-routes.js")(app);
+if (process.env.USE_CLI) {
+  require("./app/routes/cli-routes.js")(app);
+};
 
 // Set up DB
 if (process.env.SETUP_DB) {
