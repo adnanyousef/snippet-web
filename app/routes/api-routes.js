@@ -14,23 +14,23 @@ module.exports = function(app) {
       email: req.body.email,
       password: req.body.password
     }).then(function() {
-      res.redirect(307, "/api/login");
+      return res.redirect(307, "/api/login");
     }).catch(function(err) {
       console.log(err);
-      res.json(err);
+      return res.json(err);
     });
   });
 
   // Logout
   app.get("/api/logout", function(req, res) {
     req.logout();
-    res.redirect("/");
+    return res.redirect("/");
   });
 
   // Returns raw json of all snippets
   app.get("/api/all", function(req,res) {
     db.Snippet.findAll({}).then(function(results) {
-      res.json(results);
+      return res.json(results);
     });
   });
 
@@ -48,7 +48,7 @@ module.exports = function(app) {
       code: req.body.code,
       UserId: userId
     }).then(function() {
-      res.redirect("/list");
+      return res.redirect("/list");
     });
   });
 
@@ -70,7 +70,7 @@ module.exports = function(app) {
       }
     }).then(function() {
       console.log("updated");
-      res.redirect("/list");
+      return res.redirect("/list");
     });
   });
 
@@ -82,14 +82,14 @@ module.exports = function(app) {
         id: id
       }
     }).then(function() {
-      res.end();
+      return res.end();
     });
   });
 
   // Get user info
   app.get("/api/user_info", function(req,res) {
     var email = req.user.email;
-    res.json({email: email});
+    return res.json({email: email});
   });
 
 };

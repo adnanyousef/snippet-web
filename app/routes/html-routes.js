@@ -7,17 +7,17 @@ module.exports = function (app) {
   // Login page, if user logged in send them to "/list"
   app.get("/", function(req, res) {
     if (req.user) {
-      res.redirect("/list");
+      return res.redirect("/list");
     };
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    return res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
   // Signup/create account
   app.get("/signup", function(req, res) {
     if (req.user) {
-      res.redirect("/list");
+      return res.redirect("/list");
     };
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
+    return res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
   // main route, render all snippets to handlebars
@@ -39,19 +39,19 @@ module.exports = function (app) {
           if (!tags.includes(tempArr[j])) tags.push(tempArr[j]);
         };
       };
-      res.render('index', { snippet: results, taglist: tags });
+      return res.render('index', { snippet: results, taglist: tags });
     });
   });
 
   // send add.html to add snippets
   app.get("/add", function (req, res) {
-    res.sendFile(path.resolve(__dirname, "../public/add.html"));
+    return res.sendFile(path.resolve(__dirname, "../public/add.html"));
   });
 
 
   // send search.html to search for snippets
   app.get("/search", function (req, res) {
-    res.sendFile(path.resolve(__dirname, "../public/search.html"));
+    return res.sendFile(path.resolve(__dirname, "../public/search.html"));
   });
 
   // search by tag, render results to handlebars
@@ -68,7 +68,7 @@ module.exports = function (app) {
         ['id', 'DESC']
       ]
     }).then(function (results) {
-      res.render('index', { snippet: results, taglist: ['placeholder'] });
+      return res.render('index', { snippet: results, taglist: ['placeholder'] });
     });
   });
 
@@ -80,7 +80,7 @@ module.exports = function (app) {
         id: id
       }
     }).then(function(data) {
-      res.render("edit", { data: data });
+      return res.render("edit", { data: data });
     });
   });
 
