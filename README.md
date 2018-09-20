@@ -1,8 +1,6 @@
-# Code Snippet Saver (web version)
+# Code Snippet Saver
 
-<p>
-<a href="https://snippet-web.herokuapp.com/" target="_blank">Open app on Heroku</a>
-</p>
+[Open app on Heroku](https://snippet-web.herokuapp.com/)
 
 This is a simple app to save various code snippets and reference them later. When you come across a useful, reusable block of code, this app can save it for future reference. 
 
