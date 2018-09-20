@@ -13,3 +13,4 @@ This is the web-based version of this app. A terminal app with the same function
 - [ ] Integrate [CLI module](https://www.github.com/adnanyousef/snippet-save)
 - [x] Add syntax highlighting and language option
 - [x] Add validation for DB input
+- [ ] Test
