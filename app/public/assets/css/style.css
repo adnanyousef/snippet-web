@@ -29,3 +29,6 @@ kbd {
   text-decoration: none;
 }
 
+.label {
+  padding-left: 20px;
+}
