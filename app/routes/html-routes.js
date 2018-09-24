@@ -20,13 +20,32 @@ module.exports = function (app) {
     return res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
-  // main route, render all snippets to handlebars
+  // (user snippets only) main route, render all snippets to handlebars 
   app.get("/list", isAuthenticated, function (req, res) {
     var userId = req.user.id;
     db.Snippet.findAll({
       where: {
         UserId: userId
       },
+      order: [
+        ['id', 'DESC']
+      ]
+    }).then(function (results) {
+      // Create array of unique tags
+      var tags = [];
+      for (var i = 0; i < results.length; i++) {
+        var tempArr = results[i].tags.split(",");
+        for (var j = 0; j < tempArr.length; j++) {
+          if (!tags.includes(tempArr[j])) tags.push(tempArr[j]);
+        };
+      };
+      return res.render('index', { snippet: results, taglist: tags });
+    });
+  });
+
+  // (all public snippets) render all snippets to handlebars
+  app.get("/listall", isAuthenticated, function (req, res) {
+    db.Snippet.findAll({
       order: [
         ['id', 'DESC']
       ]
